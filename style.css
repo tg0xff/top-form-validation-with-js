@@ -47,3 +47,17 @@ form > div {
   grid-template-columns: repeat(2, 1fr);
   gap: 13px;
 }
+
+form > div:last-child {
+  display: grid;
+  justify-content: end;
+  align-items: center;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  padding: 7px;
+  border: 1px solid #000;
+  border-radius: 0;
+}
