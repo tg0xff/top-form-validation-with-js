@@ -15,4 +15,8 @@ class Validate {
     outputElement.classList.add("active");
     outputElement.textContent = message;
   }
+  hideError(outputElement) {
+    outputElement.classList.remove("active");
+    outputElement.textContent = "";
+  }
 }
