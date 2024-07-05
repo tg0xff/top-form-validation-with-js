@@ -11,4 +11,8 @@ class Validate {
       this.showError(output, "Please enter a valid email address.")
     }
   }
+  showError(outputElement, message) {
+    outputElement.classList.add("active");
+    outputElement.textContent = message;
+  }
 }
