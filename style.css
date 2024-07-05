@@ -6,3 +6,11 @@ body {
   font-family: system-ui, sans-serif;
   margin: 0;
 }
+
+input {
+  font-size: inherit;
+  font-family: inherit;
+  appearance: none;
+  outline: none;
+  border: 1px solid #000;
+}
