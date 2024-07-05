@@ -9,6 +9,8 @@ class Validate {
       this.showError(output, "The email field is empty.");
     } else if (email.validity.typeMismatch) {
       this.showError(output, "Please enter a valid email address.")
+    } else {
+      this.hideError(output);
     }
   }
   showError(outputElement, message) {
