@@ -22,6 +22,7 @@ select {
 input {
   outline: none;
   appearance: none;
+  width: 100%;
 }
 
 input:focus {
@@ -29,5 +30,13 @@ input:focus {
 }
 
 form {
-  margin: 13px 0;
+  margin: 11px 0;
+}
+
+label {
+  display: block;
+}
+
+form > div {
+  margin: 19px 0;
 }
