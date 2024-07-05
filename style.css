@@ -21,3 +21,7 @@ select {
 input {
   appearance: none;
 }
+
+input:focus {
+  border-color: #07d;
+}
