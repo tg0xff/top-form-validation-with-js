@@ -238,8 +238,14 @@ class Validate {
     this.form.addEventListener("submit", this.onSubmit.bind(this));
     this.email.addEventListener("focusout", this.validateEmail.bind(this));
     this.zip.addEventListener("focusout", this.validateZipCode.bind(this));
-    this.password.addEventListener("focusout", this.validatePassword.bind(this));
-    this.passwordConf.addEventListener("focusout", this.validatePasswordConfirm.bind(this));
+    this.password.addEventListener(
+      "focusout",
+      this.validatePassword.bind(this),
+    );
+    this.passwordConf.addEventListener(
+      "focusout",
+      this.validatePasswordConfirm.bind(this),
+    );
   }
   onSubmit(e) {
     e.preventDefault();
@@ -260,7 +266,7 @@ class Validate {
     if (this.email.validity.valueMissing) {
       this.showError(output, "You must provide an email.");
     } else if (this.email.validity.typeMismatch) {
-      this.showError(output, "Please enter a valid email address.")
+      this.showError(output, "Please enter a valid email address.");
     } else {
       this.hideError(output);
     }
@@ -271,7 +277,10 @@ class Validate {
     if (this.zip.validity.valueMissing) {
       this.showError(output, "You must provide a zip code.");
     } else if (!pattern.test(this.zip.value)) {
-      this.showError(output, "This zip code format is not appropriate for the selected country.");
+      this.showError(
+        output,
+        "This zip code format is not appropriate for the selected country.",
+      );
     } else {
       this.hideError(output);
     }
@@ -280,9 +289,15 @@ class Validate {
     if (passElement.validity.valueMissing) {
       this.showError(outputElement, "You must provide a password.");
     } else if (passElement.validity.tooShort) {
-      this.showError(outputElement, "The password must be at least 10 characters long.");
+      this.showError(
+        outputElement,
+        "The password must be at least 10 characters long.",
+      );
     } else if (passElement.validity.tooLong) {
-      this.showError(outputElement, "The password can't be more than 100 characters long.");
+      this.showError(
+        outputElement,
+        "The password can't be more than 100 characters long.",
+      );
     } else {
       this.hideError(outputElement);
     }
