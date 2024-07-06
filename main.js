@@ -258,7 +258,7 @@ class Validate {
   validateEmail() {
     const output = this.form.querySelector('output[for="email"]');
     if (this.email.validity.valueMissing) {
-      this.showError(output, "The email field is empty.");
+      this.showError(output, "You must provide an email.");
     } else if (this.email.validity.typeMismatch) {
       this.showError(output, "Please enter a valid email address.")
     } else {
