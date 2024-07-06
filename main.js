@@ -235,6 +235,13 @@ class Validate {
       zm: /[0-9]{5}/,
       zw: /^\d{5}$/,
     };
+    this.form.addEventListener("submit", this.onSubmit.bind(this));
+  }
+  onSubmit(e) {
+    e.preventDefault();
+    if (!this.form.reportValidity()) {
+      this.validateAll();
+    }
   }
   validateEmail() {
     const output = this.form.querySelector('output[for="email"]');
