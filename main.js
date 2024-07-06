@@ -243,6 +243,12 @@ class Validate {
       this.validateAll();
     }
   }
+  validateAll() {
+    this.validateEmail();
+    this.validateZipCode();
+    this.validatePassword();
+    this.validatePasswordConfirm();
+  }
   validateEmail() {
     const output = this.form.querySelector('output[for="email"]');
     if (this.email.validity.valueMissing) {
