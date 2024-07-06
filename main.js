@@ -241,6 +241,17 @@ class Validate {
       this.hideError(output);
     }
   }
+  validateZipCode() {
+    const zip = this.form.querySelector("#zip");
+    const country = this.form.querySelector("#country");
+    const output = this.form.querySelector('output[for="zip"]');
+    const pattern = this.zipRegexPatterns[country.value] ?? /.*/;
+    if (!pattern.test(zip.value)) {
+      this.showError(output, "This zip code format is not appropriate for the selected country.");
+    } else {
+      this.hideError(output);
+    }
+  }
   showError(outputElement, message) {
     outputElement.classList.add("active");
     outputElement.textContent = message;
