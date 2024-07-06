@@ -236,6 +236,10 @@ class Validate {
       zw: /^\d{5}$/,
     };
     this.form.addEventListener("submit", this.onSubmit.bind(this));
+    this.email.addEventListener("focusout", this.validateEmail.bind(this));
+    this.zip.addEventListener("focusout", this.validateZipCode.bind(this));
+    this.password.addEventListener("focusout", this.validatePassword.bind(this));
+    this.passwordConf.addEventListener("focusout", this.validatePasswordConfirm.bind(this));
   }
   onSubmit(e) {
     e.preventDefault();
