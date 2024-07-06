@@ -243,7 +243,7 @@ class Validate {
   }
   onSubmit(e) {
     e.preventDefault();
-    if (!this.form.reportValidity()) {
+    if (!this.form.checkValidity()) {
       this.validateAll();
     } else {
       alert("Done!");
