@@ -246,6 +246,7 @@ class Validate {
       "focusout",
       this.validatePasswordConfirm.bind(this),
     );
+    this.country.addEventListener("focusout", this.validateCountry.bind(this));
   }
   onSubmit(e) {
     e.preventDefault();
@@ -260,6 +261,15 @@ class Validate {
     this.validateZipCode();
     this.validatePassword();
     this.validatePasswordConfirm();
+    this.validateCountry();
+  }
+  validateCountry() {
+    const output = this.form.querySelector('output[for="country"]');
+    if (this.country.validity.valueMissing) {
+      this.showError(output, "You must select a country");
+    } else {
+      this.hideError(output);
+    }
   }
   validateEmail() {
     const output = this.form.querySelector('output[for="email"]');
