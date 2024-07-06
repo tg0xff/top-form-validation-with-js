@@ -1,6 +1,11 @@
 class Validate {
   constructor() {
     this.form = document.querySelector("form");
+    this.email = this.form.querySelector("#email");
+    this.zip = this.form.querySelector("#zip");
+    this.country = this.form.querySelector("#country");
+    this.password = this.form.querySelector("#password");
+    this.passwordConf = this.form.querySelector("#password-confirm");
     // Taken from: https://gist.github.com/ShreyKumar/43ebb040383c90ed976439245423aa38
     this.zipRegexPatterns = {
       af: /[0-9]{4}/,
@@ -232,22 +237,19 @@ class Validate {
     };
   }
   validateEmail() {
-    const email = this.form.querySelector("#email");
     const output = this.form.querySelector('output[for="email"]');
-    if (email.validity.valueMissing) {
+    if (this.email.validity.valueMissing) {
       this.showError(output, "The email field is empty.");
-    } else if (email.validity.typeMismatch) {
+    } else if (this.email.validity.typeMismatch) {
       this.showError(output, "Please enter a valid email address.")
     } else {
       this.hideError(output);
     }
   }
   validateZipCode() {
-    const zip = this.form.querySelector("#zip");
-    const country = this.form.querySelector("#country");
     const output = this.form.querySelector('output[for="zip"]');
-    const pattern = this.zipRegexPatterns[country.value] ?? /.*/;
-    if (!pattern.test(zip.value)) {
+    const pattern = this.zipRegexPatterns[this.country.value] ?? /.*/;
+    if (!pattern.test(this.zip.value)) {
       this.showError(output, "This zip code format is not appropriate for the selected country.");
     } else {
       this.hideError(output);
@@ -263,18 +265,15 @@ class Validate {
     }
   }
   validatePassword() {
-    const password = this.form.querySelector("#password");
     const output = this.form.querySelector('output[for="password"]');
-    this.validatePassWidget(password, output);
+    this.validatePassWidget(this.password, output);
   }
   validatePasswordConfirm() {
-    const password = this.form.querySelector("#password");
-    const passwordConf = this.form.querySelector("#password-confirm");
     const output = this.form.querySelector('output[for="password-confirm"]');
-    if (passwordConf.value !== password.value) {
+    if (this.passwordConf.value !== this.password.value) {
       this.showError(output, "The passwords do not match.");
-    } else if (!passwordConf.validity.valid) {
-      this.validatePassWidget(passwordConf, output);
+    } else if (!this.passwordConf.validity.valid) {
+      this.validatePassWidget(this.passwordConf, output);
     } else {
       this.hideError(output);
     }
