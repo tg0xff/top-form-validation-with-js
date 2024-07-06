@@ -266,6 +266,18 @@ class Validate {
     const output = this.form.querySelector('output[for="password"]');
     this.validatePassWidget(password, output);
   }
+  validatePasswordConfirm() {
+    const password = this.form.querySelector("#password");
+    const passwordConf = this.form.querySelector("#password-confirm");
+    const output = this.form.querySelector('output[for="password-confirm"]');
+    if (passwordConf.value !== password.value) {
+      this.showError(output, "The passwords do not match.");
+    } else if (!passwordConf.validity.valid) {
+      this.validatePassWidget(passwordConf, output);
+    } else {
+      this.hideError(output);
+    }
+  }
   showError(outputElement, message) {
     outputElement.classList.add("active");
     outputElement.textContent = message;
