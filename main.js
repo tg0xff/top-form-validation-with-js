@@ -268,7 +268,9 @@ class Validate {
   validateZipCode() {
     const output = this.form.querySelector('output[for="zip"]');
     const pattern = this.zipRegexPatterns[this.country.value] ?? /.*/;
-    if (!pattern.test(this.zip.value)) {
+    if (this.zip.validity.valueMissing) {
+      this.showError(output, "You must provide a zip code.");
+    } else if (!pattern.test(this.zip.value)) {
       this.showError(output, "This zip code format is not appropriate for the selected country.");
     } else {
       this.hideError(output);
