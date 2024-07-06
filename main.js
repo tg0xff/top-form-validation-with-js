@@ -1,6 +1,7 @@
 class Validate {
   constructor() {
     this.form = document.querySelector("form");
+    // Taken from: https://gist.github.com/ShreyKumar/43ebb040383c90ed976439245423aa38
     this.zipRegexPatterns = {
       af: /[0-9]{4}/,
       al: /(120|122)[0-9]{2}/,
@@ -287,3 +288,5 @@ class Validate {
     outputElement.textContent = "";
   }
 }
+
+const validate = new Validate();
