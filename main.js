@@ -241,6 +241,8 @@ class Validate {
     e.preventDefault();
     if (!this.form.reportValidity()) {
       this.validateAll();
+    } else {
+      alert("Done!");
     }
   }
   validateAll() {
