@@ -252,6 +252,15 @@ class Validate {
       this.hideError(output);
     }
   }
+  validatePassWidget(passElement, outputElement) {
+    if (passElement.validity.tooShort) {
+      this.showError(outputElement, "The password must be at least 10 characters long.");
+    } else if (passElement.validity.tooLong) {
+      this.showError(outputElement, "The password can't be more than 100 characters long.");
+    } else {
+      this.hideError(outputElement);
+    }
+  }
   showError(outputElement, message) {
     outputElement.classList.add("active");
     outputElement.textContent = message;
