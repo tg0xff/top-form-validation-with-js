@@ -261,6 +261,11 @@ class Validate {
       this.hideError(outputElement);
     }
   }
+  validatePassword() {
+    const password = this.form.querySelector("#password");
+    const output = this.form.querySelector('output[for="password"]');
+    this.validatePassWidget(password, output);
+  }
   showError(outputElement, message) {
     outputElement.classList.add("active");
     outputElement.textContent = message;
